@@ -43,7 +43,7 @@ public class AssignmentController {
         }
     }
     
-    @PostMapping("/addAssignment")
+    @PostMapping("/manager/addAssignment")
     public ResponseEntity<Assignment> insert(@RequestBody Assignment a){
         boolean inserted = service.addAssignment(a);
         if (inserted){
@@ -52,7 +52,7 @@ public class AssignmentController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/manager/delete/{id}")
     public ResponseEntity<String> delete(@PathVariable("id") int id) throws AttributeNotFoundException {
         Optional<Assignment> exists = service.getAssignmentById(id);
         if(exists.isPresent()) {
@@ -63,7 +63,7 @@ public class AssignmentController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
     }
-    @PutMapping("/updateAssignment")
+    @PutMapping("/manager/updateAssignment")
     public ResponseEntity<Assignment> updateAssignment(@RequestBody Assignment a){
         boolean updated = service.updateAssignment(a);
         if (updated){

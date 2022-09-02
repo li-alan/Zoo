@@ -41,7 +41,7 @@ public class ZookeeperController {
         }
     }
     
-    @PostMapping("/addZookeeper")
+    @PostMapping("/manager/addZookeeper")
     public ResponseEntity<Zookeeper> insert(@RequestBody Zookeeper z){
         boolean inserted = service.addZookeeper(z);
         if (inserted){
@@ -50,7 +50,7 @@ public class ZookeeperController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/manager/delete/{id}")
     public ResponseEntity<String> delete(@PathVariable("id") int id) throws AttributeNotFoundException {
         Optional<Zookeeper> exists = service.getZookeeperByID(id);
         if(exists.isPresent()) {
@@ -61,7 +61,7 @@ public class ZookeeperController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
     }
-    @PutMapping("/updateZookeeper")
+    @PutMapping("/manager/updateZookeeper")
     public ResponseEntity<Zookeeper> updateZookeeper(@RequestBody Zookeeper z){
         boolean updated = service.updateZookeeper(z);
         if (updated){

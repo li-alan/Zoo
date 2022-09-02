@@ -41,7 +41,7 @@ public class AnimalController {
         }
     }
     
-    @PostMapping("/addAnimal")
+    @PostMapping("/manager/addAnimal")
     public ResponseEntity<Animal> insert(@RequestBody Animal a){
         boolean inserted = service.addAnimal(a);
         if (inserted){
@@ -50,7 +50,7 @@ public class AnimalController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/manager/delete/{id}")
     public ResponseEntity<String> delete(@PathVariable("id") int id) throws AttributeNotFoundException {
         Optional<Animal> exists = service.getAnimalByID(id);
         if(exists.isPresent()) {
@@ -61,7 +61,7 @@ public class AnimalController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
     }
-    @PutMapping("/updateAnimal")
+    @PutMapping("/manager/updateAnimal")
     public ResponseEntity<Animal> updateAnimal(@RequestBody Animal a){
         boolean updated = service.updateAnimal(a);
         if (updated){
