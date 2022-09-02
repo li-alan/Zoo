@@ -9,14 +9,13 @@ import javax.persistence.Table;
 public class Animal {
     @Id
     int idno;
-    String name, origin, zookeeper;
+    String name, origin;
     public Animal() {
     }
-    public Animal(int idno, String name, String origin, String zookeeper) {
+    public Animal(int idno, String name, String origin) {
         this.idno = idno;
         this.name = name;
         this.origin = origin;
-        this.zookeeper = zookeeper;
     }
     public int getIdno() {
         return idno;
@@ -36,14 +35,8 @@ public class Animal {
     public void setOrigin(String origin) {
         this.origin = origin;
     }
-    public String getZookeeper() {
-        return zookeeper;
-    }
-    public void setZookeeper(String zookeeper) {
-        this.zookeeper = zookeeper;
-    }
     @Override
     public String toString() {
-        return "Animal [idno=" + idno + ", name=" + name + ", origin=" + origin + ", zookeeper=" + zookeeper + "]";
+        return "Animal [idno=" + idno + ", name=" + name + ", origin=" + origin + "]";
     }
 }
