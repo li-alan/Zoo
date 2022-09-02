@@ -2,7 +2,7 @@ package com.example.models;
 
 import javax.persistence.*;
 
-@Table()
+@Table(name = "zookeeper")
 @Entity
 public class Zookeeper {
     @Id
