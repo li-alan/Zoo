@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication(scanBasePackages = "com.*")
 @EnableJpaRepositories(basePackages = "com.*")
 @EntityScan(basePackages = "com.*")
-//@ConfigurationPropertiesScan(basePackages = "com.*")
 public class ZooApplication {
 
 	public static void main(String[] args) {
